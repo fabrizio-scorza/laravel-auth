@@ -15,7 +15,7 @@
                 <tr>
                 <td scope="row">{{$project->name}}</td>
                 <td><a href="{{$project->link}}">{{$project->link}}</a></td>
-                <td><a href="">Details</a> <a href="">Delete</a></td>
+                <td><a href="{{route('admin.projects.show',$project)}}">Details</a> <a href="">Delete</a></td>
                 </tr>   
             @endforeach        
         </tbody>
