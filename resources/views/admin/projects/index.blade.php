@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-5">
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>My Projects</h2>
+        <a class="btn btn-primary" href="{{route('admin.projects.create')}}"> Create new project</a>
+    </div>
+</div>
+<div class="container">
     <table class="table table-success table-striped">
         <thead>
             <tr>
@@ -15,7 +21,9 @@
                 <tr>
                 <td scope="row">{{$project->name}}</td>
                 <td><a href="{{$project->link}}">{{$project->link}}</a></td>
-                <td><a href="{{route('admin.projects.show',$project)}}">Details</a> <a href="">Delete</a></td>
+                @auth
+                    <td><a href="{{route('admin.projects.show',$project)}}">Details</a> <a href="">Delete</a></td>
+                @endif
                 </tr>   
             @endforeach        
         </tbody>
